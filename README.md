@@ -1,3 +1,5 @@
+# Masih dalam tahap pengenbangan
+
 aplikasi kasil 
 masih tahap awal berupa CLI
 aplikasi akan berjalan dengan skema barang dinput dan terakhir ditotalkan, lalu dikurangkan dengan diskon jika ada.
