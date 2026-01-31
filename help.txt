@@ -1,0 +1,39 @@
+$ kasir -
+Usage: kasir [OPTIONS] [COMMAND]
+
+OPTIONS:
+  -h, --help
+        Menampilkan bantuan dan daftar perintah yang tersedia.
+
+  -v, --version
+        Menampilkan versi aplikasi kasir.
+
+  -c, --clear
+        Membersihkan layar terminal sebelum menjalankan perintah.
+
+  -l, --login
+        Login sebagai kasir atau admin.
+
+  -o, --logout
+        Logout dari sesi kasir yang sedang aktif.
+
+  -P, --produk
+        Menampilkan produk
+
+COMMANDS:
+  transaksi
+        Memulai transaksi penjualan baru.
+
+  produk
+        Mengelola data produk (tambah, ubah, hapus, lihat).
+
+  pelanggan
+        Mengelola data pelanggan / member.
+
+  laporan
+        Menampilkan laporan dan riwayat penjualan.
+
+  exit
+        Keluar dari aplikasi kasir.
+
+Gunakan "kasir <command> --help" untuk detail lebih lanjut.
