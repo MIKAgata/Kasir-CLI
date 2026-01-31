@@ -1,4 +1,4 @@
-# Masih dalam tahap pengenbangan
+# Masih dalam tahap pengembangan
 
 aplikasi kasil 
 masih tahap awal berupa CLI
