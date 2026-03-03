@@ -1,3 +1,5 @@
+#CLI KASIR
+
 aplikasi kasil 
 masih tahap awal berupa CLI
 aplikasi akan berjalan dengan skema barang dinput dan terakhir ditotalkan, lalu dikurangkan dengan diskon jika ada.
@@ -5,7 +7,7 @@ lalu dijumlahkan kembali dengan uang pelanggan.
 lalu terdapat fitur untuk menambahkan produk atau mengurangi, megedit diskon 
 
 
-
+##FITUR
 query join tabel
 
 SELECT 
