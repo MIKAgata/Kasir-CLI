@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #CLI KASIR
+=======
+# Masih dalam tahap pengembangan
+>>>>>>> 4e2ef04acdd6b6e8a709ffe9a581bc7f7fbfe1d8
 
 aplikasi kasil 
 masih tahap awal berupa CLI
