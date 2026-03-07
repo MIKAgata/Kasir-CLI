@@ -29,5 +29,13 @@ def get_admin():
 
         elif cmd == "kasir -P":
             rm.get_produk()
+
+        elif cmd == "kasir -T":
+            a = str(input("Nama produk: "))
+            b = int(input("Harga produk: "))
+            c = int(input("Stok produk: "))
+            rm.tambah_produk(a, b, c)
+            rm.get_produk()
+
         else:
             pass
