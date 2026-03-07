@@ -1,38 +1,39 @@
 import mysql.connector
 from tabulate import tabulate
 
+
 def get_connect():
-    mydb = mysql.connector.connect(
+    return mysql.connector.connect(
         host="localhost",
         user="root",
         password="",
         database="kasir"
-    
     )
-    return mydb
 
 
-
-def get_tambahtable():
+def buat_tabel():
     db = get_connect()
     cursor = db.cursor()
+
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS produk (
             id INT AUTO_INCREMENT PRIMARY KEY,
-            nama VARCHAR(100),
+            nama VARCHAR(100) UNIQUE,
             harga INT,
             stok INT
         )
     """)
+
     db.commit()
     db.close()
- 
+
 
 def tambah_produk(nama, harga, stok):
     db = get_connect()
     cursor = db.cursor()
 
     cursor.execute("SELECT * FROM produk WHERE nama = %s", (nama,))
+    
     if cursor.fetchone():
         print(f"Produk '{nama}' sudah ada!")
     else:
@@ -47,21 +48,19 @@ def tambah_produk(nama, harga, stok):
 
 
 def hapus_produk(nama):
-    db = get_connect()         
-    cursor = db.cursor()       
+    db = get_connect()
+    cursor = db.cursor()
+
     cursor.execute("SELECT * FROM produk WHERE nama = %s", (nama,))
 
     if cursor.fetchone() is None:
         print(f"Produk '{nama}' tidak ditemukan!")
     else:
         cursor.execute("DELETE FROM produk WHERE nama = %s", (nama,))
-        db.commit()            # nyimpan perubahan
+        db.commit()
         print(f"Produk '{nama}' berhasil dihapus!")
-        cursor.execute("TRUNCATE TABLE produk")
 
-
-    db.close()                 
-
+    db.close()
 
 
 def get_produk():
@@ -73,26 +72,14 @@ def get_produk():
 
     if not produk:
         print("Data produk masih kosong")
-        return
-
-    header = ["ID", "Nama Produk", "Harga", "Stok"]
-    print(tabulate(produk, headers=header, tablefmt="grid"))
+    else:
+        header = ["ID", "Nama Produk", "Harga", "Stok"]
+        print(tabulate(produk, headers=header, tablefmt="grid"))
 
     db.close()
 
 
-
-
-mydb = get_connect()
-
-
-# get_tambahtable()
-
-mydb.commit()
+# pastikan tabel selalu ada saat program mulai
+buat_tabel()
 
 print("Koneksi berhasil dan tabel siap")
-
-
-
-
-
