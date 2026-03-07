@@ -1,41 +1,39 @@
 import get_database as rm
 import opration as op
-from colorama import Fore, Style, init
+from colorama import Fore
 
 
 def get_admin():
-    rm.get_connect()
-    # print("""
-    #     Pilih opsi:\n
-    #         1. Tambah produk
-    #         2. Restok produk
-    #         3. Tampilkan produk (-P)   #bingung mau isi apa
-    #         4. 
-            
 
-
-    # """)
+    # rm.get_tambahtable()  # pastikan tabel ada
 
     while True:
-        cmd = input(Fore.LIGHTRED_EX + "(admin)/"+Fore.WHITE + "kasir> ")
-        if cmd == "restok" or cmd == "admin -k":
-            pass
+        cmd = input(Fore.LIGHTRED_EX + "(admin)/" + Fore.WHITE + "kasir> ").strip().lower()
 
-        elif cmd == "clear":
+        if cmd == "clear":
             op.clear()
 
-        elif cmd == "kasir -h" or cmd == "kasir --help":
+        elif cmd in ["kasir -h", "kasir --help"]:
             op.get_help()
 
-        elif cmd == "kasir -P":
+        elif cmd == "kasir -p":
             rm.get_produk()
 
-        elif cmd == "kasir -T":
-            a = str(input("Nama produk: "))
-            b = int(input("Harga produk: "))
-            c = int(input("Stok produk: "))
-            rm.tambah_produk(a, b, c)
-            rm.get_produk()
+        elif cmd == "kasir -t":
+            try:
+                nama = input("Nama produk: ")
+                harga = int(input("Harga produk: "))
+                stok = int(input("Stok produk: "))
+
+                rm.tambah_produk(nama, harga, stok)
+                rm.get_produk()
+
+            except ValueError:
+                print("Harga dan stok harus berupa angka")
+
+        elif cmd in ["exit", "quit"]:
+            print("Keluar dari admin mode")
+            break
 
         else:
-            pass
+            print("Command tidak dikenal. Ketik 'kasir -h'")
