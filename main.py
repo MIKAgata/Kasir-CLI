@@ -1,73 +1,59 @@
 import get_database as rm
 import opration as op
 import admin as ad
-# import transaksi
 from colorama import Fore, Style, init
-
 
 init(autoreset=True)
 
 
-
-op.clear()
-
-print(Fore.CYAN + Style.BRIGHT + r"""
+def banner():
+    op.clear()
+    print(Fore.CYAN + Style.BRIGHT + r"""
 ██╗  ██╗  █████╗   ███████╗ ██╗ ██████╗ 
 ██║ ██╔╝ ██╔══██╗  ██╔════╝ ██║ ██╔══██╗
 █████╔╝  ███████║  ███████╗ ██║ ██████╔╝
 ██╔═██╗  ██╔══██║  ╚════██║ ██║ ██╔══██╗
 ██║  ██╗ ██║  ██║  ███████║ ██║ ██║  ██║    
 ╚═╝  ╚═╝ ╚═╝  ╚═╝  ╚══════╝ ╚═╝ ╚═╝  ╚═╝
-    
 """)
 
-print(Fore.YELLOW + "Selamat datang di aplikasi kasir,\n ketik kasir -h untuk melihat opsi \n ketik exit jika mau keluar\n")
+    print(
+        Fore.YELLOW
+        + "Selamat datang di aplikasi kasir\n"
+        + "ketik 'kasir -h' untuk melihat opsi\n"
+        + "ketik 'exit' untuk keluar\n"
+    )
 
 
 def get_kasir():
+
     while True:
-        cmd = input(Fore.GREEN + "kasir> ")
-        rm.get_connect()
+        cmd = input(Fore.GREEN + "kasir> ").strip().lower()
 
         if cmd == "exit":
-            print(Fore.RED + "Thanks")
+            print(Fore.RED + "Terima kasih telah menggunakan kasir")
             break
-
-        elif cmd == "transaksi":
-            pass
 
         elif cmd == "clear":
             op.clear()
 
-        elif cmd == "kasir -h" or cmd == "kasir --help":
+        elif cmd in ["kasir -h", "kasir --help"]:
             op.get_help()
 
-        elif cmd == "kasir -P":
+        elif cmd == "kasir -p":
             rm.get_produk()
 
         elif cmd == "kasir -g admin":
             ad.get_admin()
 
+        elif cmd == "transaksi":
+            print("Fitur transaksi belum dibuat")
+
         else:
-            print(cmd)
+            print(Fore.RED + "Command tidak dikenali. Ketik 'kasir -h'")
 
+
+
+
+banner()
 get_kasir()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
