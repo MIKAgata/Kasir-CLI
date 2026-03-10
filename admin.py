@@ -5,7 +5,7 @@ from colorama import Fore
 
 def get_admin():
 
-    # rm.get_tambahtable()  # pastikan tabel ada
+  
 
     while True:
         cmd = input(Fore.LIGHTRED_EX + "(admin)/" + Fore.WHITE + "kasir> ").strip().lower()
