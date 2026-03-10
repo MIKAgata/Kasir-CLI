@@ -1,6 +1,6 @@
 
-#CLI KASIR
-=======
+# CLI KASIR
+
 ## Masih dalam tahap pengembangan
 
 
@@ -11,7 +11,7 @@ lalu dijumlahkan kembali dengan uang pelanggan.
 lalu terdapat fitur untuk menambahkan produk atau mengurangi, megedit diskon 
 
 
-##FITUR
+## FITUR
 query join tabel
 
 SELECT 
